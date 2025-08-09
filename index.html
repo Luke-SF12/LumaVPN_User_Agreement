@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#111114" />
+  <meta name="theme-color" content="#000000" />
   <title>Пользовательское соглашение | LumaVPN</title>
 
   <!-- Добавление иконки на вкладку -->
@@ -16,14 +16,14 @@
 
   <style>
     :root{
-      --bg: #0e0e12;
+      --bg: #000000;            /* полностью чёрный фон */
       --bg-2: #121218;
-      --card: rgba(255,255,255,0.12);
+      --card: rgba(0,0,0,0.7);  /* более тёмные карточки */
       --text: #e7e7ee;
       --muted: #a7a7b4;
       --accent: #a855f7;        /* основной фиолетовый */
       --accent-2: #d946ef;      /* более яркий фуксия */
-      --shadow: 0 10px 30px rgba(0,0,0,.5);
+      --shadow: 0 10px 30px rgba(0,0,0,.7);
       --radius: 16px;
       --maxw: 960px;
     }
@@ -34,7 +34,7 @@
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
       color:var(--text);
-      background: #111114;
+      background: linear-gradient(135deg, #000000 0%, #1a0a2e 100%); /* фиолетовый градиентный фон */
       letter-spacing:.1px;
     }
 
@@ -42,7 +42,7 @@
     header{
       position:sticky; top:0; z-index:20;
       backdrop-filter: saturate(140%) blur(10px);
-      background: linear-gradient(180deg, rgba(10,10,14,.75), rgba(10,10,14,.45));
+      background: linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,.65));
       border-bottom:1px solid rgba(255,255,255,.06);
     }
     .nav{
@@ -75,6 +75,32 @@
       letter-spacing:.2px;
       background: linear-gradient(90deg, #fff, #ddd);
       -webkit-background-clip:text; background-clip:text; color:transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero h1 .service-name {
+      position: relative;
+      margin-top: 12px;
+      font-size: 1.2em;
+      background: linear-gradient(90deg, #fff, #ddd);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .hero h1 .service-name::before,
+    .hero h1 .service-name::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent));
+    }
+    .hero h1 .service-name::before {
+      left: -50px;
+    }
+    .hero h1 .service-name::after {
+      right: -50px;
+      background: linear-gradient(90deg, var(--accent), transparent);
     }
     .hero p{ margin:0 auto; max-width:780px; color:var(--muted); font-size:16px }
     .hero .cta{
@@ -90,26 +116,50 @@
     .btn.secondary{ background: rgba(255,255,255,.04) }
     .btn.secondary:hover{ background: rgba(255,255,255,.06) }
 
-    .card{
-      margin:28px auto; padding:28px; border-radius: var(--radius);
-      background: var(--card);
-      border:1px solid rgba(255,255,255,.08);
+    /* Стили для блоков с разделами соглашения */
+    .section-block {
+      margin: 28px 0;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(168, 85, 247, 0.3);
       box-shadow: var(--shadow);
     }
-    .card h2{
-      margin:0 0 14px; font-size:22px;
-      background: linear-gradient(90deg, #fff, #c7b8ff);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .section{ margin:22px 0 8px }
+    
     .section h3{
-      margin:0 0 10px; font-size:18px; color:#f1ecff;
-      display:flex; align-items:center; gap:10px;
+      margin:0 0 20px; 
+      font-size:20px; 
+      color:#f1ecff;
+      display:flex; 
+      align-items:center; 
+      gap:10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(168, 85, 247, 0.3);
     }
 
-    .prose p{ margin:10px 0 }
-    .prose ul{ margin:10px 0 10px 18px }
-    .prose li{ margin:6px 0 }
+    .prose p{ margin:16px 0; line-height:1.6; }
+    .prose ul{ margin:16px 0 16px 24px }
+    .prose li{ margin:10px 0; line-height:1.5 }
+
+    /* Стиль для списка с тире */
+    .dash-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 16px 0;
+    }
+    
+    .dash-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+    
+    .dash-list li:before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
 
     .toc{
       display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 6px;
@@ -122,10 +172,13 @@
     .chip:hover{ background: rgba(168,85,247,.25) }
 
     .note{
-      margin-top:18px; padding:14px 16px; border-radius: var(--radius-sm);
-      background: linear-gradient(180deg, rgba(168,85,247,.15), rgba(217,70,239,.12));
-      border:1px solid rgba(255,255,255,.1);
-      color:#efe7ff;
+      margin-top:18px; 
+      padding:18px 20px; 
+      border-radius: var(--radius);
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color:#f1ecff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
     .footer{
@@ -133,6 +186,18 @@
     }
 
     .anchor{ scroll-margin-top: 90px }
+    
+    /* Стили для ссылок */
+    a {
+      color: var(--text);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    
+    a:hover {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -151,7 +216,10 @@
 
   <main class="wrapper">
     <section class="hero">
-      <h1>Пользовательское соглашение сервиса LumaVPN</h1>
+      <h1>
+        Пользовательское соглашение сервиса
+        <span class="service-name">LumaVPN</span>
+      </h1>
       <p>Пожалуйста, внимательно ознакомьтесь с условиями ниже. Используя сервис, вы подтверждаете согласие с настоящим соглашением.</p>
       <div class="cta">
         <a class="btn" href="#terms">Читать соглашение</a>
@@ -160,7 +228,7 @@
     </section>
 
     <!-- Навигация по разделам -->
-    <div class="card">
+    <div class="section-block">
       <h2>Навигация по разделам</h2>
       <div class="toc">
         <a class="chip" href="#general">Общие положения</a>
@@ -177,66 +245,70 @@
     </div>
 
     <!-- Контент соглашения -->
-    <article id="terms" class="card prose">
-      <div id="general" class="section anchor">
+    <article id="terms" class="prose">
+      <div id="general" class="section-block section anchor">
         <h3>1. Общие положения</h3>
         <p>1.1. Сервис LumaVPN предназначен для обеспечения безопасности, конфиденциальности и стабильности при доступе в интернет, а также для защиты передаваемых данных от утечек и несанкционированного доступа.</p>
-        <p>1.2. Предоставление услуг осуществляется через официальный канал <a href="https://t.me/+mRWJH0Qh3DU2Njlk" target="_blank" rel="noopener">LumaVPN</a> и сервис-бот <a href="https://t.me/vpn_luma_bot" target="_blank" rel="noopener">LumaVPN Bot</a>.</p>
+        <p>1.2. Предоставление услуг осуществляется через:</p>
+        <ul class="dash-list">
+          <li>Официальный канал <a href="https://t.me/+mRWJH0Qh3DU2Njlk" target="_blank" rel="noopener">LumaVPN</a></li>
+          <li>Сервис-бот <a href="https://t.me/vpn_luma_bot" target="_blank" rel="noopener">LumaVPN Bot</a></li>
+        </ul>
         <p>1.3. Использование сервиса разрешено лицам старше 18 лет. Для несовершеннолетних требуется согласие законного представителя.</p>
-      </div><br /><br />
+      </div>
 
-      <div id="purpose" class="section anchor">
+      <div id="purpose" class="section-block section anchor">
         <h3>2. Назначение и функциональность</h3>
         <p>2.1. Сервис LumaVPN шифрует трафик, обеспечивая защиту данных при их передаче через интернет, обеспечивая максимальную анонимность и безопасность пользователя.</p>
         <p>2.2. Сервис не предназначен для обхода блокировок, установленных государственными органами или другими уполномоченными организациями, включая доступ к запрещённым в рамках законодательства ресурсам (например, экстремистские материалы, нарушение авторских прав).</p>
-      </div><br /><br />
+      </div>
 
-      <div id="rules" class="section anchor">
+      <div id="rules" class="section-block section anchor">
         <h3>3. Обязанности и ограничения пользователя</h3>
         <p>3.1. Пользователь обязуется использовать сервис в соответствии с действующим законодательством.</p>
         <p>3.2. Запрещено использовать сервис для распространения запрещённых веществ, информации или иной противоправной деятельности.</p>
         <p>3.3. Пользователь несет ответственность за законность, достоверность и содержание данных, передаваемых через сервис.</p>
         <p>3.4. Запрещается использовать сервис для несанкционированного доступа к чужим ресурсам или системам.</p>
         <p>3.5. Пользователь обязуется сохранять конфиденциальность подписки и ключей. Передача данных третьим лицам запрещена.</p>
-      </div><br /><br />
+      </div>
 
-      <div id="torrent" class="section anchor">
+      <div id="torrent" class="section-block section anchor">
         <h3>4. Запрет использования торрент-протоколов</h3>
         <p>4.1. Сервис LumaVPN <b>строго запрещает</b> использование торрент-протоколов (BitTorrent, µTorrent, qBittorrent и аналогичных) и P2P-сетей для загрузки или распространения любого контента через сервис.</p>
         <p>4.2. Эти ограничения введены для защиты стабильности работы сервиса и соблюдения требований провайдеров инфраструктуры.</p>
         <p>4.3. Попытки обхода системы мониторинга или использования VPN поверх сервиса для сокрытия торрент-активности рассматриваются как отягчающие обстоятельства.</p>
-      </div><br /><br />
+      </div>
 
-      <div id="liability" class="section anchor">
+      <div id="liability" class="section-block section anchor">
         <h3>5. Ограничения ответственности сервиса</h3>
         <p>5.1. Сервис не несет ответственности за внешние обстоятельства и не гарантирует постоянную доступность внешних ресурсов, включая заблокированные по решению государственных органов.</p>
         <p>5.2. Сервис не несёт ответственности за последствия, вызванные сторонними факторами, которые могут повлиять на работу сервисов или доступность интернета.</p>
-      </div><br /><br />
+      </div>
 
-      <div id="changes" class="section anchor">
+      <div id="changes" class="section-block section anchor">
         <h3>6. Изменения и обновления</h3>
         <p>6.1. Администрация сервиса оставляет за собой право изменять условия соглашения, предварительно уведомив пользователей.</p>
         <p>6.2. Изменения вступают в силу с момента их опубликования в официальном канале «LumaVPN».</p>
         <p>6.3. Тарифы с автоматическим продлением могут быть отменены не позднее чем за 24 часа до даты списания средств.</p>
-      </div><br /><br />
+      </div>
 
-      <div id="termination" class="section anchor">
+      <div id="termination" class="section-block section anchor">
         <h3>7. Прекращение предоставления услуг</h3>
         <p>7.1. Сервис может приостановить или прекратить предоставление услуг пользователю, нарушающему настоящее соглашение.</p>
         <p>7.2. После прекращения услуги пользователь обязан прекратить использование конфигурационных данных сервиса.</p>
         <p>7.3. Администрация оставляет за собой право в любой момент отключить подписку пользователя без предварительного уведомления при выявлении нарушений (например, спам, DDoS-атаки и т.п.). В остальных случаях уведомление направляется за 7 дней.</p>
-      </div><br /><br />
+      </div>
 
-      <div id="refunds" class="section anchor">
+      <div id="refunds" class="section-block section anchor">
         <h3>8. Возврат средств</h3>
         <p>8.1. При ошибочном внесении суммы пользователь может обратиться за возвратом средств через службу поддержки.</p>
         <p>8.2. При добровольном отказе от уже приобретённого тарифа производится возврат 50% от уплаченной суммы.</p>
         <p>8.3. Возврат средств осуществляется в течение 14 рабочих дней после запроса через тот же платёжный метод.</p>
         <p>8.4. Возврат невозможен, если пользователь воспользовался услугой более 24 часов.</p>
         <p>8.5. Возврат средств не производится при блокировке за нарушение правил использования торрент-протоколов или других серьёзных нарушениях пользовательского соглашения.</p>
-      </div><br /><br />
+      </div>
 
-      <div id="sanctions" class="section anchor">
+      <div id="sanctions" class="section-block section anchor">
         <h3>9. Нарушения и санкции</h3>
         <p>9.1. Оскорбительное поведение, враждебная коммуникация, угрозы, хамство, унижение чести и достоинства, токсичность, травля других пользователей или представителей службы поддержки строго запрещены.</p>
         <p>9.2. При выявлении такого поведения:</p>
@@ -244,21 +316,21 @@
           <li>Первое нарушение — официальное предупреждение и временная блокировка доступа к сервису сроком до 7 дней.</li>
           <li>Повторное нарушение — безвозвратная блокировка аккаунта с аннулированием тарифа и полной потерей внесённых средств.</li>
           <li>Особо тяжёлые случаи (угрозы, призывы к насилию, клевета, систематическое нарушение) — передача данных в правоохранительные органы и пожизненная блокировка.</li>
-        </ul><br /><br />
+        </ul>
       </div>
 
-      <div id="privacy" class="section anchor">
+      <div id="privacy" class="section-block section anchor">
         <h3>10. Сбор и обработка данных</h3>
         <p>10.1. Сервис осуществляет сбор технической информации, необходимой для обеспечения стабильной работы, включая IP-адреса, сведения о устройстве, используемом браузере.</p>
         <p>10.2. Сервис не собирает персональные данные, не предоставленные пользователем добровольно, и не осуществляет мониторинг содержимого передаваемых данных.</p>
         <p>10.3. Собранные данные используются исключительно для улучшения качества предоставляемых услуг и обеспечения безопасности соединения.</p>
         <p>10.4. Данные хранятся в зашифрованном виде на защищённых серверах. Срок хранения технической информации — не больше 24 часов.</p>
-        <p>10.5. Сервис соблюдает принципы GDPR и не передаёт данные третьим лицам без явного согласия пользователя, за исключением случаев, предусмотренных законом.<br /><br /></p>
+        <p>10.5. Сервис соблюдает принципы GDPR и не передаёт данные третьим лицам без явного согласия пользователя, за исключением случаев, предусмотренных законом.</p>
       </div>
 
-      <div class="note">
+      <div class="note section-block">
         ✅ Используя сервис, вы подтверждаете согласие с данными условиями.<br /><br />
-        Дата обновления: <b>04.08.2025</b>
+        Дата обновления: <b>09.08.2025</b>
       </div>
     </article>
 
@@ -268,4 +340,4 @@
     </div>
   </main>
 </body>
-</
+</html>
