@@ -15,16 +15,13 @@
     :root{
       --bg: #0e0e12;
       --bg-2: #121218;
-      --card: rgba(255,255,255,0.08);
-      --card-strong: rgba(255,255,255,0.12);
+      --card: rgba(255,255,255,0.12);
       --text: #e7e7ee;
       --muted: #a7a7b4;
       --accent: #a855f7;        /* основной фиолетовый */
       --accent-2: #d946ef;      /* более яркий фуксия */
-      --accent-soft: #6d28d9;   /* глубокий фиолетовый */
       --shadow: 0 10px 30px rgba(0,0,0,.5);
       --radius: 16px;
-      --radius-sm: 12px;
       --maxw: 960px;
     }
 
@@ -34,9 +31,7 @@
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
       color:var(--text);
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(168,85,247,.25), transparent 60%),
-                  radial-gradient(900px 700px at -10% 20%, rgba(217,70,239,.15), transparent 60%),
-                  linear-gradient(180deg, var(--bg), var(--bg-2));
+      background: linear-gradient(180deg, var(--bg), var(--bg-2));
       letter-spacing:.1px;
     }
 
@@ -94,7 +89,7 @@
 
     .card{
       margin:28px auto; padding:28px; border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.02));
+      background: var(--card);
       border:1px solid rgba(255,255,255,.08);
       box-shadow: var(--shadow);
     }
@@ -103,7 +98,6 @@
       background: linear-gradient(90deg, #fff, #c7b8ff);
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .card p{ color:#d9d9e2 }
     .section{ margin:22px 0 8px }
     .section h3{
       margin:0 0 10px; font-size:18px; color:#f1ecff;
@@ -135,17 +129,7 @@
       margin:36px auto 20px; color:var(--muted); font-size:13px; text-align:center;
     }
 
-    /* Якоря внутри контента */
     .anchor{ scroll-margin-top: 90px }
-
-    /* Кастомный selection и скроллбар */
-    ::selection{ background: rgba(168,85,247,.35) }
-    ::-webkit-scrollbar{ width:10px; height:10px }
-    ::-webkit-scrollbar-thumb{
-      background: linear-gradient(180deg, #6d28d9, #a855f7);
-      border-radius:999px;
-    }
-    ::-webkit-scrollbar-track{ background: rgba(255,255,255,.04) }
   </style>
 </head>
 <body>
@@ -281,4 +265,4 @@
     </div>
   </main>
 </body>
-</html>
+</
